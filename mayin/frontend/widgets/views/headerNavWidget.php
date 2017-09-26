@@ -1,3 +1,4 @@
+<?php use app\modules\product\models\Category; ?>
 <div class="header-nav animate-dropdown">
 <div class="container">
    <div class="yamm navbar navbar-default" role="navigation">
@@ -14,7 +15,7 @@
             <div class="nav-outer">
                <ul class="nav navbar-nav">
                   <li class="active dropdown yamm-fw">
-                     <a href="home.html" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Home</a>
+                     <a href="home.html" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Trang chủ</a>
                      <ul class="dropdown-menu">
                         <li>
                            <div class="yamm-content">
@@ -22,78 +23,30 @@
                                  <div class="col-md-8 col-sm-8">
                                     <div class="row">
                                        <div class='col-md-12'>
+
+                                        <?php foreach ($dataCat as $key => $value): ?>
+                                           
+                                        
                                           <div class="col-xs-12 col-sm-6 col-md-3">
-                                             <h2 class="title">Computer</h2>
+                                             <h2 class="title"><?=  $value['cateName']; ?></h2>
                                              <ul class="links">
+                                             <?php 
+                                             $catsub1 = new Category;
+                                             $dataCatsub1 = $catsub1->getCategoryByParent($value['idCate']);
+                                              ?>
+                                              <?php foreach ($dataCatsub1 as $key1 => $value1): ?>
+                                                 
+                                              
                                                 <li>
-                                                   <a href="#">Lenovo</a>
+                                                   <a href="#"><?=  $value1['cateName']; ?></a>
                                                 </li>
-                                                <li>
-                                                   <a href="#">Microsoft </a>
-                                                </li>
-                                                <li>
-                                                   <a href="#">Fuhlen</a>
-                                                </li>
-                                                <li>
-                                                   <a href="#">Longsleeves</a>
-                                                </li>
+                                                
+                                             <?php endforeach ?>
                                              </ul>
                                           </div>
                                           <!-- /.col -->
-                                          <div class="col-xs-12 col-sm-6 col-md-3">
-                                             <h2 class="title">Camera</h2>
-                                             <ul class="links">
-                                                <li>
-                                                   <a href="#">Fuhlen</a>
-                                                </li>
-                                                <li>
-                                                   <a href="#">Lenovo</a>
-                                                </li>
-                                                <li>
-                                                   <a href="#">Microsoft </a>
-                                                </li>
-                                                <li>
-                                                   <a href="#">Longsleeves</a>
-                                                </li>
-                                             </ul>
-                                          </div>
-                                          <!-- /.col -->
-                                          <div class="col-xs-12 col-sm-6 col-md-3">
-                                             <h2 class="title">Apple Store</h2>
-                                             <ul class="links">
-                                                <li>
-                                                   <a href="#">Longsleeves</a>
-                                                </li>
-                                                <li>
-                                                   <a href="#">Fuhlen</a>
-                                                </li>
-                                                <li>
-                                                   <a href="#">Lenovo</a>
-                                                </li>
-                                                <li>
-                                                   <a href="#">Microsoft </a>
-                                                </li>
-                                             </ul>
-                                          </div>
-                                          <!-- /.col -->
-                                          <div class="col-xs-12 col-sm-6 col-md-3">
-                                             <h2 class="title">Smart Phone</h2>
-                                             <ul class="links">
-                                                <li>
-                                                   <a href="#">Microsoft </a>
-                                                </li>
-                                                <li>
-                                                   <a href="#">Longsleeves</a>
-                                                </li>
-                                                <li>
-                                                   <a href="#">Fuhlen</a>
-                                                </li>
-                                                <li>
-                                                   <a href="#">Lenovo</a>
-                                                </li>
-                                             </ul>
-                                          </div>
-                                          <!-- /.col -->
+                                       <?php endforeach ?>
+                                          
                                        </div>
                                     </div>
                                  </div>
@@ -112,12 +65,12 @@
                                                    <div class="image">
                                                       <img class="img-responsive" data-echo="images/banners/4.jpg" src="images/blank.gif" alt="">
                                                    </div>
-                                                   <div class="strip">
+                                                   <!-- <div class="strip">
                                                       <div class="strip-inner text-right">
                                                          <h3 class="white">new trend</h3>
                                                          <h2 class="white">apple product</h2>
                                                       </div>
-                                                   </div>
+                                                   </div> -->
                                                 </div>
                                                 <!-- /.wide-banner -->
                                              </div>
@@ -154,90 +107,35 @@
                      </ul>
                   </li>
                   <li class="dropdown yamm">
-                     <a href="home.html" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Desktop</a>
-                     <ul class="dropdown-menu">
+
+                     <a href="home.html" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Máy in<span class="menu-label hot-menu hidden-xs">hot</span></a>
+                     <ul class="dropdown-menu printer">
                         <li>
                            <div class="yamm-content">
                               <div class="row">
-                                 <div class='col-sm-12'>
+                                 <div class='col-sm-12 col-md-12'>
+                                 <?php 
+                                    $printer = new Category;
+                                    $dataprinter = $printer->getCategoryByParent(1);
+                                  ?>
+                                 <?php foreach ($dataprinter as $key => $value): ?>
                                     <div class="col-xs-12 col-sm-12 col-md-4">
-                                       <h2 class="title">Laptops &amp; Notebooks</h2>
+                                       <h2 class="title"><?= $value['cateName'] ?></h2>
                                        <ul class="links">
+                                       <?php 
+                                          $dataprinter1 = new Category;
+                                          $dataprinter1 = $dataprinter1->getCategoryByParent($value['idCate']);
+                                        ?>
+                                        <?php foreach ($dataprinter1 as $key10 => $value10): ?>
                                           <li>
-                                             <a href="#">Power Supplies Power</a>
+                                             <a href="#"><?= $value10['cateName'] ?></a>
                                           </li>
-                                          <li>
-                                             <a href="#">Power Supply Testers Sound </a>
-                                          </li>
-                                          <li>
-                                             <a href="#">Sound Cards (Internal)</a>
-                                          </li>
-                                          <li>
-                                             <a href="#">Video Capture &amp; TV Tuner Cards</a>
-                                          </li>
-                                          <li>
-                                             <a href="#">Other</a>
-                                          </li>
+                                       <?php endforeach ?>
                                        </ul>
                                     </div>
                                     <!-- /.col -->
-                                    <div class="col-xs-12 col-sm-12 col-md-4">
-                                       <h2 class="title">Computers &amp; Laptops</h2>
-                                       <ul class="links">
-                                          <li>
-                                             <a href="#">Computer Cases &amp; Accessories</a>
-                                          </li>
-                                          <li>
-                                             <a href="#">CPUs, Processors</a>
-                                          </li>
-                                          <li>
-                                             <a href="#">Fans, Heatsinks &amp; Cooling</a>
-                                          </li>
-                                          <li>
-                                             <a href="#">Graphics, Video Cards</a>
-                                          </li>
-                                          <li>
-                                             <a href="#">Interface, Add-On Cards</a>
-                                          </li>
-                                          <li>
-                                             <a href="#">Laptop Replacement Parts</a>
-                                          </li>
-                                          <li>
-                                             <a href="#">Memory (RAM)</a>
-                                          </li>
-                                          <li>
-                                             <a href="#">Motherboards</a>
-                                          </li>
-                                          <li>
-                                             <a href="#">Motherboard &amp; CPU Combos</a>
-                                          </li>
-                                          <li>
-                                             <a href="#">Motherboard Components &amp; Accs</a>
-                                          </li>
-                                       </ul>
-                                    </div>
-                                    <!-- /.col -->
-                                    <div class="col-xs-12 col-sm-12 col-md-4">
-                                       <h2 class="title">Dekstop Parts</h2>
-                                       <ul class="links">
-                                          <li>
-                                             <a href="#">Power Supplies Power</a>
-                                          </li>
-                                          <li>
-                                             <a href="#">Power Supply Testers Sound</a>
-                                          </li>
-                                          <li>
-                                             <a href="#">Sound Cards (Internal)</a>
-                                          </li>
-                                          <li>
-                                             <a href="#">Video Capture &amp; TV Tuner Cards</a>
-                                          </li>
-                                          <li>
-                                             <a href="#">Other</a>
-                                          </li>
-                                       </ul>
-                                    </div>
-                                    <!-- /.col -->
+                                 <?php endforeach ?>
+
                                  </div>
                               </div>
                               <!-- /.row -->
@@ -246,25 +144,56 @@
                         </li>
                      </ul>
                   </li>
-                  <li class="dropdown">
-                     <a href="category.html">Electronics
-                     <span class="menu-label hot-menu hidden-xs">hot</span>
-                     </a>
+                  <li class="dropdown yamm">
+                     <a href="home.html" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Máy tính</a>
+                     <ul class="dropdown-menu computer">
+                        <li>
+                           <div class="yamm-content">
+                              <div class="row">
+                                 <div class='col-sm-12'>
+                                 <?php 
+                                    $computer = new Category;
+                                    $datacomputer = $computer->getCategoryByParent(2);
+                                  ?>
+                                 <?php foreach ($datacomputer as $key => $value): ?>
+                                    <div class="col-xs-12 col-sm-12 col-md-3">
+                                       <h2 class="title"><?= $value['cateName'] ?></h2>
+                                       <ul class="links">
+                                       <?php 
+                                          $computersub1 = new Category;
+                                          $datacomputersub1 = $computersub1->getCategoryByParent($value['idCate']);
+                                        ?>
+                                        <?php foreach ($datacomputersub1 as $key11 => $value11): ?>
+                                          <li>
+                                             <a href="#"><?= $value11['cateName'] ?></a>
+                                          </li>
+                                       <?php endforeach ?>
+                                       </ul>
+                                    </div>
+                                    <!-- /.col -->
+                                 <?php endforeach ?>
+
+                                 </div>
+                              </div>
+                              <!-- /.row -->
+                           </div>
+                           <!-- /.yamm-content -->
+                        </li>
+                     </ul>
                   </li>
+
                   <li class="dropdown hidden-sm">
-                     <a href="category.html">Television
+                     <a href="category.html">Máy photocopy
                      <span class="menu-label new-menu hidden-xs">new</span>
                      </a>
                   </li>
                   <li class="dropdown hidden-sm">
-                     <a href="category.html">Smart Phone</a>
+                     <a href="category.html">Linh kiện</a>
                   </li>
+                  
                   <li class="dropdown">
-                     <a href="contact.html">Contact</a>
-                  </li>
-                  <li class="dropdown navbar-right">
                      <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Pages</a>
-                     <ul class="dropdown-menu pages">
+                     <ul class="dropdown-menu pages pages_info">
                         <li>
                            <div class="yamm-content">
                               <div class="row">
@@ -347,6 +276,9 @@
                            </div>
                         </li>
                      </ul>
+                  </li>
+                  <li class="dropdown navbar-right">
+                     <a href="contact.html">Contact</a>
                   </li>
                </ul>
                <!-- /.navbar-nav -->

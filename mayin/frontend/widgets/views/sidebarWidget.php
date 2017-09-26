@@ -806,16 +806,24 @@
       <h3 class="section-title">Special Deals</h3>
       <div class="sidebar-widget-body outer-top-xs">
          <div class="owl-carousel sidebar-carousel special-offer custom-carousel owl-theme outer-top-xs">
+         <?php $i=0; ?>
             <div class="item">
                <div class="products special-product">
+               <?php foreach ($ranData as $value): ?>
+                  <?php if ($i%3==0): ?>
+                        </div>
+                     </div>
+                     <div class="item">
+                        <div class="products special-product">
+                  <?php endif ?>
                   <div class="product">
                      <div class="product-micro">
                         <div class="row product-micro-row">
                            <div class="col col-xs-5">
                               <div class="product-image">
                                  <div class="image">
-                                    <a href="images/products/sm4.jpg" data-lightbox="image-1" data-title="Nunc ullamcors">
-                                       <img data-echo="images/products/sm4.jpg" src="images/blank.gif" alt="">
+                                    <a href="<?= $myUrl.$value['image']; ?>" data-lightbox="image-1" data-title="Nunc ullamcors">
+                                       <img data-echo="<?= $myUrl.$value['image']; ?>" src="images/blank.gif" alt="" width="100px">
                                        <div class="zoom-overlay"></div>
                                     </a>
                                  </div>
@@ -829,7 +837,7 @@
                            <!-- /.col -->
                            <div class="col col-xs-7">
                               <div class="product-info">
-                                 <h3 class="name"><a href="#">Simple Product</a></h3>
+                                 <h3 class="name"><a href="#"><?= $value['productName']; ?></a></h3>
                                  <div class="rating rateit-small"></div>
                                  <div class="product-price">    
                                     <span class="price">
@@ -845,79 +853,13 @@
                      </div>
                      <!-- /.product-micro -->
                   </div>
-                  <div class="product">
-                     <div class="product-micro">
-                        <div class="row product-micro-row">
-                           <div class="col col-xs-5">
-                              <div class="product-image">
-                                 <div class="image">
-                                    <a href="images/products/sm5.jpg" data-lightbox="image-1" data-title="Nunc ullamcors">
-                                       <img data-echo="images/products/sm5.jpg" src="images/blank.gif" alt="">
-                                       <div class="zoom-overlay"></div>
-                                    </a>
-                                 </div>
-                                 <!-- /.image -->
-                              </div>
-                              <!-- /.product-image -->
-                           </div>
-                           <!-- /.col -->
-                           <div class="col col-xs-7">
-                              <div class="product-info">
-                                 <h3 class="name"><a href="#">Simple Product</a></h3>
-                                 <div class="rating rateit-small"></div>
-                                 <div class="product-price">    
-                                    <span class="price">
-                                    $650.99             </span>
-                                 </div>
-                                 <!-- /.product-price -->
-                                 <div class="action"><a href="#" class="lnk btn btn-primary">Add To Cart</a></div>
-                              </div>
-                           </div>
-                           <!-- /.col -->
-                        </div>
-                        <!-- /.product-micro-row -->
-                     </div>
-                     <!-- /.product-micro -->
-                  </div>
-                  <div class="product">
-                     <div class="product-micro">
-                        <div class="row product-micro-row">
-                           <div class="col col-xs-5">
-                              <div class="product-image">
-                                 <div class="image">
-                                    <a href="images/products/sm6.jpg" data-lightbox="image-1" data-title="Nunc ullamcors">
-                                       <img data-echo="images/products/sm6.jpg" src="images/blank.gif" alt="">
-                                       <div class="zoom-overlay"></div>
-                                    </a>
-                                 </div>
-                                 <!-- /.image -->
-                                 <div class="tag tag-micro new">
-                                    <span>new</span>
-                                 </div>
-                              </div>
-                              <!-- /.product-image -->
-                           </div>
-                           <!-- /.col -->
-                           <div class="col col-xs-7">
-                              <div class="product-info">
-                                 <h3 class="name"><a href="#">Sony Camera X30</a></h3>
-                                 <div class="rating rateit-small"></div>
-                                 <div class="product-price">    
-                                    <span class="price">
-                                    $650.99             </span>
-                                 </div>
-                                 <!-- /.product-price -->
-                                 <div class="action"><a href="#" class="lnk btn btn-primary">Add To Cart</a></div>
-                              </div>
-                           </div>
-                           <!-- /.col -->
-                        </div>
-                        <!-- /.product-micro-row -->
-                     </div>
-                     <!-- /.product-micro -->
-                  </div>
+                  
+                  <?php $i++; ?>
+               <?php endforeach ?>
                </div>
             </div>
+         
+<!-- 
             <div class="item">
                <div class="products special-product">
                   <div class="product">
@@ -931,11 +873,11 @@
                                        <div class="zoom-overlay"></div>
                                     </a>
                                  </div>
-                                 <!-- /.image -->
+                                 /.image
                               </div>
-                              <!-- /.product-image -->
+                              /.product-image
                            </div>
-                           <!-- /.col -->
+                           /.col
                            <div class="col col-xs-7">
                               <div class="product-info">
                                  <h3 class="name"><a href="#">Sony Ericson Vaga</a></h3>
@@ -944,15 +886,15 @@
                                     <span class="price">
                                     $650.99             </span>
                                  </div>
-                                 <!-- /.product-price -->
+                                 /.product-price
                                  <div class="action"><a href="#" class="lnk btn btn-primary">Add To Cart</a></div>
                               </div>
                            </div>
-                           <!-- /.col -->
+                           /.col
                         </div>
-                        <!-- /.product-micro-row -->
+                        /.product-micro-row
                      </div>
-                     <!-- /.product-micro -->
+                     /.product-micro
                   </div>
                   <div class="product">
                      <div class="product-micro">
@@ -965,14 +907,14 @@
                                        <div class="zoom-overlay"></div>
                                     </a>
                                  </div>
-                                 <!-- /.image -->
+                                 /.image
                                  <div class="tag tag-micro sale">
                                     <span>sale</span>
                                  </div>
                               </div>
-                              <!-- /.product-image -->
+                              /.product-image
                            </div>
-                           <!-- /.col -->
+                           /.col
                            <div class="col col-xs-7">
                               <div class="product-info">
                                  <h3 class="name"><a href="#">Sony Ericson Vaga</a></h3>
@@ -981,15 +923,15 @@
                                     <span class="price">
                                     $650.99             </span>
                                  </div>
-                                 <!-- /.product-price -->
+                                 /.product-price
                                  <div class="action"><a href="#" class="lnk btn btn-primary">Add To Cart</a></div>
                               </div>
                            </div>
-                           <!-- /.col -->
+                           /.col
                         </div>
-                        <!-- /.product-micro-row -->
+                        /.product-micro-row
                      </div>
-                     <!-- /.product-micro -->
+                     /.product-micro
                   </div>
                   <div class="product">
                      <div class="product-micro">
@@ -1002,11 +944,11 @@
                                        <div class="zoom-overlay"></div>
                                     </a>
                                  </div>
-                                 <!-- /.image -->
+                                 /.image
                               </div>
-                              <!-- /.product-image -->
+                              /.product-image
                            </div>
-                           <!-- /.col -->
+                           /.col
                            <div class="col col-xs-7">
                               <div class="product-info">
                                  <h3 class="name"><a href="#">Sony Ericson Vaga</a></h3>
@@ -1015,15 +957,15 @@
                                     <span class="price">
                                     $650.99             </span>
                                  </div>
-                                 <!-- /.product-price -->
+                                 /.product-price
                                  <div class="action"><a href="#" class="lnk btn btn-primary">Add To Cart</a></div>
                               </div>
                            </div>
-                           <!-- /.col -->
+                           /.col
                         </div>
-                        <!-- /.product-micro-row -->
+                        /.product-micro-row
                      </div>
-                     <!-- /.product-micro -->
+                     /.product-micro
                   </div>
                </div>
             </div>
@@ -1040,14 +982,14 @@
                                        <div class="zoom-overlay"></div>
                                     </a>
                                  </div>
-                                 <!-- /.image -->
+                                 /.image
                                  <div class="tag tag-micro new">
                                     <span>new</span>
                                  </div>
                               </div>
-                              <!-- /.product-image -->
+                              /.product-image
                            </div>
-                           <!-- /.col -->
+                           /.col
                            <div class="col col-xs-7">
                               <div class="product-info">
                                  <h3 class="name"><a href="#">Sony Ericson Vaga</a></h3>
@@ -1056,15 +998,15 @@
                                     <span class="price">
                                     $650.99             </span>
                                  </div>
-                                 <!-- /.product-price -->
+                                 /.product-price
                                  <div class="action"><a href="#" class="lnk btn btn-primary">Add To Cart</a></div>
                               </div>
                            </div>
-                           <!-- /.col -->
+                           /.col
                         </div>
-                        <!-- /.product-micro-row -->
+                        /.product-micro-row
                      </div>
-                     <!-- /.product-micro -->
+                     /.product-micro
                   </div>
                   <div class="product">
                      <div class="product-micro">
@@ -1077,14 +1019,14 @@
                                        <div class="zoom-overlay"></div>
                                     </a>
                                  </div>
-                                 <!-- /.image -->
+                                 /.image
                                  <div class="tag tag-micro hot">
                                     <span>hot</span>
                                  </div>
                               </div>
-                              <!-- /.product-image -->
+                              /.product-image
                            </div>
-                           <!-- /.col -->
+                           /.col
                            <div class="col col-xs-7">
                               <div class="product-info">
                                  <h3 class="name"><a href="#">Sony Ericson Vaga</a></h3>
@@ -1093,15 +1035,15 @@
                                     <span class="price">
                                     $650.99             </span>
                                  </div>
-                                 <!-- /.product-price -->
+                                 /.product-price
                                  <div class="action"><a href="#" class="lnk btn btn-primary">Add To Cart</a></div>
                               </div>
                            </div>
-                           <!-- /.col -->
+                           /.col
                         </div>
-                        <!-- /.product-micro-row -->
+                        /.product-micro-row
                      </div>
-                     <!-- /.product-micro -->
+                     /.product-micro
                   </div>
                   <div class="product">
                      <div class="product-micro">
@@ -1114,11 +1056,11 @@
                                        <div class="zoom-overlay"></div>
                                     </a>
                                  </div>
-                                 <!-- /.image -->
+                                 /.image
                               </div>
-                              <!-- /.product-image -->
+                              /.product-image
                            </div>
-                           <!-- /.col -->
+                           /.col
                            <div class="col col-xs-7">
                               <div class="product-info">
                                  <h3 class="name"><a href="#">Sony Ericson Vaga</a></h3>
@@ -1127,18 +1069,19 @@
                                     <span class="price">
                                     $650.99             </span>
                                  </div>
-                                 <!-- /.product-price -->
+                                 /.product-price
                                  <div class="action"><a href="#" class="lnk btn btn-primary">Add To Cart</a></div>
                               </div>
                            </div>
-                           <!-- /.col -->
+                           /.col
                         </div>
-                        <!-- /.product-micro-row -->
+                        /.product-micro-row
                      </div>
-                     <!-- /.product-micro -->
+                     /.product-micro
                   </div>
                </div>
             </div>
+             -->
          </div>
       </div>
       <!-- /.sidebar-widget-body -->

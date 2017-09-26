@@ -3,6 +3,7 @@ namespace app\widgets;
 
 use yii\base\Widget;
 use yii\helpers\Html;
+use app\modules\product\models\Product;
 
 class scrollTabsWidget extends Widget
 {
@@ -18,6 +19,12 @@ class scrollTabsWidget extends Widget
 
     public function run()
     {
-        return $this->render('scrollTabsWidget');
+        $product = new Product();
+        $newProduct = $product->getNewProduct();
+
+        $myUrl = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] && !in_array(strtolower($_SERVER['HTTPS']),array('off','no'))) ? 'https' : 'http';
+        // Get domain portion
+        $myUrl .= '://'.$_SERVER['HTTP_HOST'];
+        return $this->render('scrollTabsWidget',['newProduct'=>$newProduct,'myUrl'=>$myUrl]);
     }
 }

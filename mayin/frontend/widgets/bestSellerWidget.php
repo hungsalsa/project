@@ -3,6 +3,7 @@ namespace app\widgets;
 
 use yii\base\Widget;
 use yii\helpers\Html;
+use app\modules\product\models\Product;
 
 class bestSellerWidget extends Widget
 {
@@ -18,6 +19,8 @@ class bestSellerWidget extends Widget
 
     public function run()
     {
-        return $this->render('bestSellerWidget');
+        $product = new Product();
+        $newProduct = $product->getNewProduct();
+        return $this->render('bestSellerWidget',['newProduct'=>$newProduct]);
     }
 }

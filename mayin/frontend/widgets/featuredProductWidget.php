@@ -3,7 +3,7 @@ namespace app\widgets;
 
 use yii\base\Widget;
 use yii\helpers\Html;
-
+use app\modules\product\models\Product;
 class featuredProductWidget extends Widget
 {
     public $message;
@@ -18,6 +18,8 @@ class featuredProductWidget extends Widget
 
     public function run()
     {
-        return $this->render('featuredProductWidget');
+        $product = new Product();
+        $feaProduct = $product->getNewProduct();
+        return $this->render('featuredProductWidget',['feaProduct'=>$feaProduct]);
     }
 }

@@ -17,6 +17,9 @@ return [
         'dichvu' => [
             'class' => 'app\modules\dichvu\Dichvu',
         ],
+        'product' => [
+            'class' => 'app\modules\product\product',
+        ],
     ],
     'components' => [
         'request' => [

@@ -3,6 +3,7 @@ namespace app\widgets;
 
 use yii\base\Widget;
 use yii\helpers\Html;
+use app\modules\product\models\Category;
 
 class headerNavWidget extends Widget
 {
@@ -18,6 +19,8 @@ class headerNavWidget extends Widget
 
     public function run()
     {
-        return $this->render('headerNavWidget');
+        $cat = new Category;
+        $dataCat = $cat->getCategoryByParent();
+        return $this->render('headerNavWidget',['dataCat'=>$dataCat]);
     }
 }
